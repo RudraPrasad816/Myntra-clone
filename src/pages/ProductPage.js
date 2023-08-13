@@ -17,7 +17,7 @@ export function ProductPage() {
             setPathname(setPathName());
             setProduct(productchoose[0]);
             setImages(productchoose[0].otherImages);
-        }, []
+        }
     )
 
     function setPathName() {
