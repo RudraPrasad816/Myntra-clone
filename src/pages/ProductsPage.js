@@ -30,7 +30,7 @@ function ProductsPage() {
         else {
             navigate("/pagenotfound")
         }
-    }, [page])
+    }, [page,navigate, products])
 
     return (
         <div className="container">

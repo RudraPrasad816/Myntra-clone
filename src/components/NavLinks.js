@@ -1,18 +1,14 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {RxCross2} from 'react-icons/rx';
-import { DataContext } from '../App';
-import data from '../data/data';
 
 function NavLinks(props) {
-
-    const productData = useContext(DataContext);
 
     useEffect(()=>{
         if(props.toggle === true){
             document.getElementById('navbarlinks').classList.toggle('active')
         }
-    },[props.toggle])
+    })
 
     function removeToggle(){
         document.getElementById('navbarlinks').classList.remove('active')
