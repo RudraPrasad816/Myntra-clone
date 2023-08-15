@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { GridHeader, Sidebar, ProductContainer } from "../components";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import data from '../data/data';
 
 function ProductsPage() {
 
     const page = useParams().page;
-
-    const navigate = useNavigate();
 
     const [productdata, setProductData] = useState([]);
     const [brands, setBrands] = useState([]);
