@@ -6,13 +6,11 @@ import data from '../data/data';
 function ProductsPage() {
 
     const page = useParams().page;
-
+    
     const navigate = useNavigate();
 
     const [productdata, setProductData] = useState([]);
-
     const [brands, setBrands] = useState([]);
-
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {

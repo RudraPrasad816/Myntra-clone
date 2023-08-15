@@ -22,6 +22,7 @@ function Sidebar(props) {
                     />
                     <label htmlFor="white"> white shirts</label>
                 </div>
+                
                 <div className="category">
                     <input
                         type="checkbox"
@@ -30,6 +31,7 @@ function Sidebar(props) {
                     />
                     <label htmlFor="white"> fullsleeve</label>
                 </div>
+
                 <div className="brand-category">
                     <h3>Brands</h3>
                     {
@@ -52,6 +54,7 @@ function Sidebar(props) {
                         })
                     }
                 </div>
+
                 <div className="discount-category">
                     <h3>discount range</h3>
                     <input type="radio" name="discount" id="10"/>

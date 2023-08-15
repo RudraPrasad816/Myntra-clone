@@ -26,6 +26,7 @@ export function ProductPage() {
         path = "home" + path.split("%20").join(" ");
         return path
     }
+    
     let keyid = 1;
 
     return (
