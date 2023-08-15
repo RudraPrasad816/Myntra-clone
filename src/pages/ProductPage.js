@@ -4,15 +4,16 @@ import data from '../data/data';
 
 export function ProductPage() {
 
-    const id = useParams().id;
+    const {id} = useParams();
     const [product, setProduct] = useState([]);
     const [images, setImages] = useState([]);
     const [pathname, setPathname] = useState("");
 
     useEffect(
         () => {
+            let productId = id.split("-");
             var productchoose = data.filter((element) => {
-                return `${element.id}` === id[0];
+                return `${element.id}` === productId[0];
             })
             setPathname(setPathName());
             setProduct(productchoose[0]);

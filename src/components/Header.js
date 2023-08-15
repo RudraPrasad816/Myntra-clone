@@ -42,7 +42,7 @@ function Header() {
                         <div className='usericon'>
                             <Link to='/' className="usericon pointer">
                                 <FaRegUser />
-                                <p>user</p>
+                                <p>profile</p>
                             </Link>
 
                             <div className="profile-shortcut">

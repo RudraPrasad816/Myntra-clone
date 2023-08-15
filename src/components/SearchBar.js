@@ -5,17 +5,22 @@ import { DataContext } from '../App';
 function SearchBar() {
 
     const data = useContext(DataContext);
+
+    const [search, setSearch] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     let id = 0;
 
 
     const keySearch = (e) => {
+        setSearch(e.target.value);
         
-        if (e.target.value === '') {
+        if (search === '') {
             setSuggestions([]);
         } else {
             let newSuggestions = data.newData.filter((element) => {
-                let newEle = element.name.toLowerCase().includes(e.target.value.toLowerCase()) || element.description.toLowerCase().includes(e.target.value.toLowerCase());
+                let newEle = element.name.toLowerCase().includes(e.target.value.toLowerCase()) 
+                             || element.description.toLowerCase().includes(e.target.value.toLowerCase())
+                             || `${element.name} + ${element.description}`.toLowerCase().includes(e.target.value.toLowerCase())
                 return newEle;
             })
 
@@ -25,13 +30,15 @@ function SearchBar() {
         if (e.keyCode === 13) {
             searchTheElement(e.target.value);
         }
+
+        console.log(search)
     }
 
     function searchTheElement(element) {
         let searcharray = data.newData.filter((item) => {
-            let newarray = element.toLowerCase().includes(item.name.toLowerCase()) 
-            || element.toLowerCase().includes(item.description.toLowerCase());
-            
+            let newarray = element.toLowerCase().includes(item.name.toLowerCase())
+                || element.toLowerCase().includes(item.description.toLowerCase());
+
             return newarray;
         })
 

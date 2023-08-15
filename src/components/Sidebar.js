@@ -1,30 +1,13 @@
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "../App";
+import { useEffect, useState } from "react";
 
-function Sidebar() {
+function Sidebar(props) {
 
-    const data = useContext(DataContext);
-    const [brands, setBrands] = useState([]);
+    const [brands, setBrands]= useState([]);
 
-    useEffect(() => {
-        let brandList = [];
-        data.newData.forEach((product) => {
-            brandList.push(product.name)
-        })
+    useEffect(()=>{
+        setBrands(props.brands)
+    }, [props.brands])
 
-        let set = new Set();
-        brandList.forEach((brand) => {
-            set.add(brand);
-        })
-
-        brandList = [];
-        set.forEach((ele) => {
-            brandList.push(ele);
-        })
-
-        setBrands(brandList);
-
-    }, [data.newData])
     let id = 1;
 
     return (
@@ -55,6 +38,14 @@ function Sidebar() {
                                 <input
                                     type="checkbox"
                                     name='brand'
+                                    value={brand}
+                                    onChange={(e)=>{
+                                        if(e.target.checked){
+                                            props.setProduct(e.target.value)
+                                        }else{
+                                            props.removeProduct(e.target.value)
+                                        }
+                                    }}
                                 />
                                 <label> &nbsp;{brand}</label>
                             </div>
