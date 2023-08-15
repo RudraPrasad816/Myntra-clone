@@ -6,7 +6,7 @@ import data from '../data/data';
 function ProductsPage() {
 
     const page = useParams().page;
-    
+
     const navigate = useNavigate();
 
     const [productdata, setProductData] = useState([]);
@@ -23,9 +23,6 @@ function ProductsPage() {
             sessionStorage.setItem('page', "womens products");
             const filterData = data.filter((ele) => { return ele.gender === 'F' })
             setProductData(filterData);
-        }
-        else {
-            showError();
         }
     }, [page])
 
@@ -50,10 +47,6 @@ function ProductsPage() {
         [productdata]
     )
 
-    function showError(){
-        navigate("/pagenotfound");
-    }
-
     function showProductByBrands(brand){
         let filteredProducts = productdata.filter((ele) =>{
             return ele.name === brand;
@@ -72,7 +65,7 @@ function ProductsPage() {
         <div className="container">
             <GridHeader productsCount={productdata.length} />
             <Sidebar brands={brands} setProduct={showProductByBrands} removeProduct={removeProductFromBrand} />
-            <ProductContainer products={filteredData.length == 0 ? productdata : filteredData} />
+            <ProductContainer products={filteredData.length === 0 ? productdata : filteredData} />
         </div>
     )
 }
