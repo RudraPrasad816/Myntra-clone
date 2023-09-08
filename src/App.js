@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Header } from './components';
-import { Home, ProductsPage, CartPage, LoginPage, RegisterPage, Error, ProductPage } from './pages';
 import data from './data/data';
 import { auth } from './firebase';
+import { Header, Footer } from './components';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home, ProductsPage, CartPage, LoginPage, RegisterPage, Error, ProductPage } from './pages';
 
 export const DataContext = React.createContext(data);
 
@@ -38,6 +38,7 @@ function App() {
             <Route path='/login' element={<LoginPage />} />
             <Route path="*" element={<Error />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </DataContext.Provider>
     </>

@@ -1,18 +1,26 @@
+import { useEffect, useState } from "react";
 
 function GridHeader(props) {
+
+    const [page, setPage] = useState("");
+
+    useEffect(
+        () => {
+            if(props.page === 'mens products'){
+                setPage("men's products")
+            }else{
+                setPage("women's products")
+            }
+        },
+        [props.page]
+    )
 
     return (
         <>
             <section className="product_header">
-                <p className="product_path">Home / {sessionStorage.getItem('page')}</p>
+                <p className="product_path">Home / {page}</p>
                 <p className="product_count">
-                    {
-                        sessionStorage.getItem('page') === "mens_product" 
-                        ?
-                        "Men's Products"
-                        :
-                        "Women's Products"
-                    }
+                    {page}
                     <span>
                         &nbsp; {props.productsCount} items
                     </span>

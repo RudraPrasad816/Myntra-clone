@@ -39,6 +39,7 @@ function ProductsPage() {
                     set.add(ele)
                 }
             )
+            
             brandList = Array.from(set);
             setBrands(brandList);
         },
@@ -61,7 +62,7 @@ function ProductsPage() {
 
     return (
         <div className="container">
-            <GridHeader productsCount={productdata.length} />
+            <GridHeader productsCount={productdata.length} page={page} />
             <Sidebar brands={brands} setProduct={showProductByBrands} removeProduct={removeProductFromBrand} />
             <ProductContainer products={filteredData.length === 0 ? productdata : filteredData} />
         </div>

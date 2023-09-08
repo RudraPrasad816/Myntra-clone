@@ -33,6 +33,11 @@ img {
     cursor: pointer;
 }
 
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
 
 /* header start */
 
@@ -130,9 +135,12 @@ nav .rightnav {
     left: 0;
     width: 100%;
     max-height: 20vh;
-    overflow: hidden;
+    overflow-y: scroll;
     border-radius: 2px;
     background-color: var(--background);
+}
+.suggestions::-webkit-scrollbar{
+    display: none;
 }
 
 .suggestions .suggestion {
@@ -417,6 +425,28 @@ nav .rightnav {
     font-size: .6rem;
 }
 
+.upcomming-deals{
+    display: flex;
+    gap: .8em;
+    padding: 2rem 0;
+}
+.upcomming-deals-image{
+    height: 30vh;
+    width: 70%;
+    overflow: hidden;
+    border-radius: 0 120px 120px 0;
+}
+
+.upcomming-deals-details{
+    width: 30%;
+    font-family: gabriola;
+    font-size: 2.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary);
+}
+
 .omg-deals {
     background-image: linear-gradient(to right, violet, pink, gold);
     margin: 1rem auto;
@@ -457,7 +487,7 @@ nav .rightnav {
     width: 100%;
     padding: 1rem 0;
     display: grid;
-    column-gap: 1rem;
+    column-gap: 0rem;
     row-gap: 0;
 }
 
@@ -476,7 +506,7 @@ nav .rightnav {
 
 .container .product_container {
     grid-column-start: 2;
-    grid-column-end: 14;
+    grid-column-end: 13;
 }
 
 /* grid header start */
@@ -567,12 +597,13 @@ aside label {
 /* product container start */
 .product_container {
     height: 82vh;
-    width: calc(100vw - 250px);
-    padding: 1rem 1rem;
+    width: calc(100vw - 200px);
+    padding: 1rem 0;
     overflow-y: scroll;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    margin:auto;
 }
 
 .product_container::-webkit-scrollbar {
@@ -582,9 +613,12 @@ aside label {
 /* product container ends */
 
 /* product card section */
+
 .product-card {
     background-color: hsl(0, 0%, 100%);
     border-radius: 5px;
+    height: max-content;
+    overflow: hidden;
 }
 
 .product-card:hover {
@@ -648,7 +682,7 @@ aside label {
 
 .product-card:hover .hover-btns {
     display: block;
-    height: 30%;
+    height: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -702,7 +736,76 @@ aside label {
 /* product description page end */
 
 
+/* footer page */
+
+.footer{
+    background-color: #f6f6f6a8;
+    margin-top: 2rem;
+}
+.footer-content{
+    width: 75% !important;
+    margin: auto;
+    padding: 2rem .5rem;
+    display: flex;
+    gap: 1.5em;
+    justify-content: space-between;
+}
+.footer-content >:nth-child(1), .footer-content >:nth-child(2){
+    width: 34%;
+}
+.footer-content >:nth-child(3), .footer-content >:nth-child(4){
+    width: 55%;
+}
+.footer-content h3{
+    margin-bottom: 1em;
+    font-size: .7em;
+    text-transform: uppercase;
+    color: rgb(78, 78, 78);
+}
+.footer-content ul{
+    list-style-type: none;
+    font-size: .75em;
+    text-transform: capitalize;
+}
+.footer-content ul li{
+    margin-bottom: .4em;
+}
+.useful-links{
+    margin-top: 1.5em;
+}
+.experience-in-mobile .mobile-app-images{
+    display: flex;
+    flex-wrap: wrap;
+}
+.keep-in-touch h3{
+    margin-top: 2em;
+}
+.keep-in-touch ul{
+    display: flex;
+    gap: 1em;
+}
+.keep-in-touch li a > *{
+    height: 2em;
+    width: 2em;
+} 
+.guarenty-policy > *{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+.inner-policy img{
+    width: 2.2em;
+    aspect-ratio: 1 / 1;
+}
+.inner-policy p{
+    width: 65%;
+}
+/* footer page end */
+
+
 /* Error page styling */
+
 .error-page {
     height: 100vh;
     width: 100%;
@@ -719,10 +822,24 @@ aside label {
 
 
 /* media queries */
+@media (max-width: 1300px){
+    .header nav{
+        max-width: 98vw;
+        width: 90%;
+    }
+    .upcomming-deals-details{
+        width: 35%;
+        font-size: 2.1em;
+    }
+    .inner-policy p{
+        width: 75%;
+        font-size: small;
+    }
+}
 
 @media (max-width: 900px) {
     .header nav {
-        max-width: 100vw;
+        max-width: 98vw;
         width: 98%;
     }
 
@@ -732,6 +849,21 @@ aside label {
 
     .rightnav {
         justify-content: flex-end;
+    }
+    .upcomming-deals-details{
+        width: 35%;
+        font-size: 2em;
+    }
+    .upcomming-deals-image{
+        height: 30vh;
+        width: 70%;
+        overflow: hidden;
+        border-radius: 0 90px 90px 0;
+    }
+    .upcomming-deals-image img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }
 
@@ -747,6 +879,38 @@ aside label {
 
     .searchbar input {
         display: none;
+    }
+    .product_container {
+        grid-template-columns: repeat(auto-fit, minmax(130px, auto));
+        margin:auto;
+    }
+    .upcomming-deals-details{
+        width: 35%;
+        font-size: 1.4em;
+    }
+    .footer-content{
+        width: 90% !important;
+        display: flex;
+        padding: 0;
+        margin: auto;
+        flex-direction: column;
+    }
+    .footer-content >:nth-child(1), .footer-content >:nth-child(2),
+    .footer-content >:nth-child(3), .footer-content >:nth-child(4){
+        width: 100%;
+    }
+    .footer-content h3{
+        margin-top: 1.5em;
+    }
+    .footer-content ul{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5em;
+    }
+    .footer-content ul li{
+        margin-top : 0;
+        padding: 0;
+        line-height: 0;
     }
 }
 
@@ -797,5 +961,9 @@ aside label {
 
     .home .offerSectionSD {
         display: block;
+    }
+    .product_container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+        margin:auto;
     }
 }

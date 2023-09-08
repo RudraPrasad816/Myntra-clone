@@ -3,8 +3,8 @@ import { TiTick } from 'react-icons/ti';
 import { BiRupee } from 'react-icons/bi';
 import { BsShieldLockFill } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
+import { HomeCard } from "../components/index";
 import data from '../data/data';
-import { ProductCard } from "../components/index";
 
 function Home() {
 
@@ -53,12 +53,23 @@ function Home() {
                 </div>
             </div>
 
+            <div className='upcomming-deals'>
+                <div className="upcomming-deals-image">
+                    <div className="image-wrapper">
+                    <img src="https://cdn.flipshope.com/blog/wp-content/uploads/2023/05/Myntra-upcoming-sale.jpg" alt="" />
+                    </div>
+                </div>
+                <div className="upcomming-deals-details">
+                    <h1>Coming Soon</h1>
+                </div>
+            </div>
+
             <div className="omg-deals">
                 <h1>Omg! Deals</h1>
                 <div className="omg-deals-container">
                     {
                         omgDeals.map((product) => {
-                            return <ProductCard data={product} key={id++} />
+                            return <HomeCard data={product} key={id++} />
                         })
                     }
                 </div>
